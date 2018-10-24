@@ -1,5 +1,6 @@
 package rs.enjoy.demo1;
 
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -13,8 +14,9 @@ public class Counter {
 		this.brojac = brojac;
 	}
 	
-	public void increase() {
-		brojac++;
+	
+	public int increase() {
+		return brojac++;
 	}
 	
 	

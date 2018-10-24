@@ -1,6 +1,7 @@
 package rs.enjoy.demo1;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -28,9 +29,19 @@ public class HelloControler {
 		tn.start();
 		br++;
 		}
-		return "Broj: "+ThreadNew.brojac;
-		 
+		return "Broj: "+ThreadNew.brojac;	
+	}
+	
+	@RequestMapping("/newMethod")
+	public String newMethod() {
 		
+		return ""+counter.getBrojac();
+		
+	}
+	@Scheduled(fixedDelay=7000)
+	public void time() {
+		
+		counter.increase();
 	}
 	
 	
